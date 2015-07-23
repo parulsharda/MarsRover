@@ -8,9 +8,8 @@ import static org.junit.Assert.assertEquals;
 public class MarsRoverTest {
 
     @Test
-
-    public void shouldReturnItsInitialPointAndHeadingDirectionWhenNoMoveOperationsSpecified() {
-        MarsRover rover = new MarsRover(0,0,'N',"LRLLR");
+    public void whenStartsAtZeroZeroAndFacingNorthShouldReturnZeroZeroAndNorthWhenNoMoveOperationSpecified() {
+        MarsRover rover = new MarsRover(0,0,'N',"LLL");
 
         String finalPosition = rover.move();
 
@@ -18,13 +17,22 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void shouldReturnItsInitialPosiitonAndHeadingDirectionWhenNotAllowedToMove() {
+    public void whenStartsAtZeroZeroAndFacingSouthShouldReturnZeroZeroAndSouthWhenNotPossibleToMoveInSouthDirection() {
         MarsRover rover = new MarsRover(0,0,'S',"MMLRM");
 
         String finalPosition = rover.move();
 
-        assertEquals("0,0,S",finalPosition.toString());
-
+        assertEquals("0,0,S", finalPosition.toString());
 
     }
+
+    @Test
+    public void whenStartsAtOneTwoAndFacingNorthshouldReturnOneTwoAndFacingWestWhenOperationSpecifiedIsLeft() {
+        MarsRover rover = new MarsRover(1,2,'N',"L");
+
+        String finalPosition = rover.move();
+
+        assertEquals("0,0,W", finalPosition.toString());
+    }
 }
+
