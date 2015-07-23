@@ -24,7 +24,12 @@ public class MarsRover {
         if (this.headingDirection == 'E' && this.movements == "R") {
             this.headingDirection = 'S';
             return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
-        } else
+        }
+        if (this.headingDirection == 'E' && this.movements == "L") {
+            this.headingDirection = 'N';
+            return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
+        }
+        else
             return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
     }
 

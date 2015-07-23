@@ -52,5 +52,14 @@ public class MarsRoverTest {
 
         assertEquals("1 4 S", finalPosition.toString());
     }
+
+    @Test
+    public void whenStartsAtFourAndFourAndFacingEastShouldReturnFourFourAndFacingNorthWhenOperationSpecifiedIsLeft() {
+        MarsRover rover = new MarsRover(4, 4, 'E', "L");
+
+        MarsRover finalPosition = rover.move();
+
+        assertEquals("4 4 N", finalPosition.toString());
+    }
 }
 
