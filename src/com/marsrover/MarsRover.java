@@ -1,11 +1,11 @@
 package com.marsrover;
 
 public class MarsRover {
-    int xCoOrdinate,yCoOrdinate;
+    int xCoOrdinate, yCoOrdinate;
     char headingDirection;
     String movements;
 
-    public MarsRover(int xCoOrdinate,int yCoOrdinate,char headingDirection ,String movements) {
+    public MarsRover(int xCoOrdinate, int yCoOrdinate, char headingDirection, String movements) {
         this.xCoOrdinate = xCoOrdinate;
         this.yCoOrdinate = yCoOrdinate;
         this.headingDirection = headingDirection;
@@ -13,16 +13,19 @@ public class MarsRover {
     }
 
     public MarsRover move() {
-        if(this.headingDirection == 'N' && this.movements == "L") {
+        if (this.headingDirection == 'N' && this.movements == "L") {
             this.headingDirection = 'W';
             return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
         }
-        if(this.headingDirection == 'N' && this.movements == "R") {
+        if (this.headingDirection == 'N' && this.movements == "R") {
             this.headingDirection = 'E';
             return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
         }
-        else
-           return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
+        if (this.headingDirection == 'E' && this.movements == "R") {
+            this.headingDirection = 'S';
+            return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
+        } else
+            return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
     }
 
     @Override
