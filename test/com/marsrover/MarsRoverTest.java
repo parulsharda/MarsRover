@@ -11,28 +11,37 @@ public class MarsRoverTest {
     public void whenStartsAtZeroZeroAndFacingNorthShouldReturnZeroZeroAndNorthWhenNoMoveOperationSpecified() {
         MarsRover rover = new MarsRover(0,0,'N',"LLL");
 
-        String finalPosition = rover.move();
+        MarsRover finalPosition = rover.move();
 
-        assertEquals("0,0,N" ,finalPosition.toString());
+        assertEquals("0 0 N", finalPosition.toString());
     }
 
     @Test
     public void whenStartsAtZeroZeroAndFacingSouthShouldReturnZeroZeroAndSouthWhenNotPossibleToMoveInSouthDirection() {
         MarsRover rover = new MarsRover(0,0,'S',"MMLRM");
 
-        String finalPosition = rover.move();
+        MarsRover finalPosition = rover.move();
 
-        assertEquals("0,0,S", finalPosition.toString());
+        assertEquals("0 0 S", finalPosition.toString());
 
     }
 
     @Test
-    public void whenStartsAtOneTwoAndFacingNorthshouldReturnOneTwoAndFacingWestWhenOperationSpecifiedIsLeft() {
+    public void whenStartsAtOneTwoAndFacingNorthShouldReturnOneTwoAndFacingWestWhenOperationSpecifiedIsLeft() {
         MarsRover rover = new MarsRover(1,2,'N',"L");
 
-        String finalPosition = rover.move();
+        MarsRover finalPosition = rover.move();
 
-        assertEquals("0,0,W", finalPosition.toString());
+        assertEquals("1 2 W", finalPosition.toString());
+    }
+
+    @Test
+    public void whenStartsAtThreeAndFourAndFacingNorthShouldReturnThreeFourAndFacingEastWhenOperationSpecifiedIsRight() {
+        MarsRover rover = new MarsRover(3,4,'N',"R");
+
+        MarsRover finalPosition = rover.move();
+
+        assertEquals("3 4 E", finalPosition.toString());
     }
 }
 

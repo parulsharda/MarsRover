@@ -12,18 +12,22 @@ public class MarsRover {
         this.movements = movements;
     }
 
-    public String move() {
-        if(this.headingDirection == 'N' && this.movements == "L")
-            return "0,0,W";
-        if(this.headingDirection == 'N')
-         return "0,0,N";
+    public MarsRover move() {
+        if(this.headingDirection == 'N' && this.movements == "L") {
+            this.headingDirection = 'W';
+            return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
+        }
+        if(this.headingDirection == 'N' && this.movements == "R") {
+            this.headingDirection = 'E';
+            return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
+        }
         else
-            return "0,0,S";
+           return new MarsRover(this.xCoOrdinate, this.yCoOrdinate, this.headingDirection, this.movements);
     }
 
     @Override
     public String toString() {
-        return "MarsRover{" + "xCoOrdinate=" + xCoOrdinate + "" + " yCoOrdinate=" + yCoOrdinate + ", headingDirection=" + headingDirection + ", movements='" + movements + '\'' + '}';
+        return this.xCoOrdinate + " " + this.yCoOrdinate + " " + this.headingDirection;
     }
 
     @Override
