@@ -13,6 +13,15 @@ public class MarsRover {
     }
 
     public String move() {
-        return "0,0,N";
+        if(this.headingDirection == 'N')
+         return "0,0,N";
+        else
+            return "0,0,S";
+    }
+
+    @Override
+    public String toString() {
+        return "MarsRover{" + "xCoOrdinate=" + xCoOrdinate + "" + " yCoOrdinate=" + yCoOrdinate + ", headingDirection=" + headingDirection +
+                ", movements='" + movements + '\'' + '}';
     }
 }
